@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #d5d5db;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+}
+/* Contenedor principal */
+.container {
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(243, 235, 238);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    width: 300px;
+}
+.question {
+    margin: 20px 0;
+}
+.faces {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.faces button {
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+}
+.faces button.selected {
+    border-color: blue;
+    background-color: #d0e8ff;
+}
+.suggestion {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #333;
+}
+button:hover {
+    background: #d0e8ff;
+}
+
+.generate-button {
+    background-color: #2541bd;  /* Color de fondo azul */
+    color: white;               /* Texto en blanco */
+    padding: 12px 24px;         /* Espaciado interno */
+    border: none;               /* Eliminar bordes predeterminados */
+    border-radius: 25px;         /* Bordes redondeados */
+    font-size: 18px;            /* Tamaño de la fuente */
+    cursor: pointer;           /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+/* Estilo cuando el mouse está sobre el botón */
+.generate-button:hover {
+    background-color: #45a049;  /* Cambio de color cuando el cursor pasa sobre el botón */
+}
+
+/* Estilo para el botón de "Reiniciar" */
+.reset-button {
+    background-color: #ec8274;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Estilo cuando el mouse pasa sobre el botón "Reiniciar" */
+.reset-button:hover {
+    background-color: #e53935;
+}
