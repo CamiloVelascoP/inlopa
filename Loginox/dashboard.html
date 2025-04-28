@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inlopa</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Menú Lateral -->
+        <nav class="lateral-menu">
+            <button class="toggle-menu" onclick="toggleMenu()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="user-info">
+                <h2>Bienvenido<br><span id="nombreUsuario"></span></h2>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#libros" class="menu-item"><i class="fas fa-book"></i><span>Libros</span></a></li>
+                <li><a href="#videos" class="menu-item"><i class="fas fa-video"></i><span>Videos</span></a></li>
+                <li><a href="#musica" class="menu-item"><i class="fas fa-music"></i><span>Música</span></a></li>
+                <li><a href="#peliculas" class="menu-item"><i class="fas fa-film"></i><span>Películas</span></a></li>
+                <li><a href="#actividades" class="menu-item"><i class="fas fa-tasks"></i><span>Actividades</span></a></li>
+                <li><a href="#progreso" class="menu-item"><i class="fas fa-chart-line"></i><span>Progreso</span></a></li>
+             <!--   <li><a href="#redes" class="menu-item"><i class="fas fa-share-alt"></i><span>Mis Redes</span></a></li> -->
+                <li><a href="#chatbot" class="menu-item"><i class="fas fa-robot"></i><span>Chatbot</span></a></li>
+        <!--    <li><a href="#parati" class="menu-item"><i class="fas fa-user"></i><span>Para ti</span></a></li> -->
+             <!--   <li><a href="#alimentacion" class="menu-item"><i class="fas fa-star"></i><span>Alimentación Saludable</span></a></li>-->
+            </ul>
+            <div class="logout-container">
+                <a href="#" class="logout-btn" onclick="cerrarSesion(event)">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Sección de Bienvenida -->
+            <section id="bienvenida" class="content-section">
+                <div class="welcome-message">
+                    <h2>Bienvenido al Programa de Prafe</h2>
+                    <div id="mensaje-bienvenida" class="mensaje-contenido"></div>
+                </div>
+            </section>
+
+            <!-- Sección de Juegos 
+            <section id="juegos" class="content-section">
+                <h2>Juegos de Match</h2>
+                <div class="nivel-selector">
+                    <button onclick="seleccionarNivel('basico')">Básico</button>
+                    <button onclick="seleccionarNivel('medio')">Medio</button>
+                    <button onclick="seleccionarNivel('avanzado')">Avanzado</button>
+                </div>
+                <div id="juego-container"></div>
+            </section>-->
+
+            <!-- Sección de Libros -->
+            <section id="libros" class="content-section">
+                <h2>Biblioteca Digital</h2>
+                <div class="libros-container">
+                    <div id="libros-lista"></div>
+                    <div id="libro-visor"></div>
+                </div>
+            </section>
+
+            <!-- Sección de Videos -->
+            <section id="videos" class="content-section">
+                <div id="videos-grid"></div>
+            </section>
+
+            <!-- Sección de Progreso -->
+            <section id="progreso" class="content-section">
+                <h2>Formularios de Progreso</h2>
+                <div id="formularios-lista"></div>
+            </section>
+
+            <!-- Sección de Actividades -->
+            <section id="actividades" class="content-section">
+                <h2>Actividades</h2>
+                <div class="libros-container">
+                    <div id="actividades-lista"></div>
+                    <div id="actividad-visor">
+                        <div class="visor-header">
+                            <h3 id="visor-titulo"></h3>
+                        </div>
+                        <div class="visor-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Películas -->
+            <section id="peliculas" class="content-section">
+                <h2>Películas Recomendadas</h2>
+                <div id="peliculas-tabla"></div>
+            </section>
+
+            <!-- Sección Para ti -->
+            <section id="parati" class="content-section">
+                <h2>Mensaje Personalizado</h2>
+                <div id="mensaje-personal"></div>
+            </section>
+
+            <!-- Sección de Contenido -->
+            <section id="alimentacion" class="content-section">
+                <h2>Alimentación Saludable</h2>
+                <div id="carrusel-imagenes"></div>
+            </section>
+
+            <!-- Sección de Redes -->
+            <section id="redes" class="content-section">
+                <h2>Mis Redes Sociales</h2>
+                <div id="redes-container"></div>
+            </section>
+
+            <!-- Sección de Música -->
+            <section id="musica" class="content-section">
+                <h2>Música Recomendada</h2>
+                <div id="musica-tabla"></div>
+            </section>
+
+            <!-- Sección de Chatbot -->
+            <section id="chatbot" class="content-section">
+                <h2>Asistente Virtual</h2>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <form class="chat-form" id="chat-form">
+                        <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." required autocomplete="off" spellcheck="false">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/libros.js"></script>
+    <script type="module" src="js/actividades.js"></script>
+    <script type="module" src="js/videos.js"></script>
+    <script type="module" src="js/progreso.js"></script>
+    <script type="module" src="js/peliculas.js"></script>
+    <script type="module" src="js/parati.js"></script>
+    <script type="module" src="js/alimentacion.js"></script>
+    <script type="module" src="js/redes.js"></script>
+    <script type="module" src="js/musica.js"></script>
+    <script type="module" src="js/chatbot.js"></script>
+
+    <script>
+        // Función para plegar/desplegar el menú
+        function toggleMenu() {
+            const menu = document.querySelector('.lateral-menu');
+            menu.classList.toggle('collapsed');
+            const icon = menu.querySelector('.toggle-menu i');
+            icon.classList.toggle('fa-chevron-left');
+            icon.classList.toggle('fa-chevron-right');
+        }
+    </script>
+</body>
+</html> 
